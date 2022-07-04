@@ -42,7 +42,7 @@ const LoginPage = (props) => {
                 style={{width : '400px'}} 
                 iconBg="bg-pink" 
                 icon={CloseIcon} 
-                title='Lead Manager - Login Page1'>
+                title='Lead Manager - Login Page'>
                 <Form 
                     className="project-form" 
                     buttonClass="bg-pink"
