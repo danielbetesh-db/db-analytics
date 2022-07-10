@@ -24,6 +24,23 @@ body{
   margin: 0 auto;
 }
 
+.pop-message{
+  position: absolute;
+  top: 0;
+  left: 260px;
+  padding: 5px 10px;
+  color: #fff;
+  background: #50aa54;
+  transition: 1s all;
+  transform: translateY(-100%);
+  opacity: 0.5;
+  z-index: 99999;
+}
+
+.pop-message.on{
+  transform: translateY(0);
+  opacity: 1;
+}
 .cover .view{
   position: fixed;
   left: 0;
@@ -290,7 +307,9 @@ body{
 .submit-field{
   margin: 20px 15px 0px 15px;
   direction: rtl;
+  text-align: right;
 }
+
 
 .submit-field input{
   border: none;

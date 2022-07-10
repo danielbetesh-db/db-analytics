@@ -11,7 +11,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import MainPage from './MainPage';
 import ProjectsPage from './ProjectsPage';
 import SettingsPage from './Settings';
-import KeyGenerator from '../../Utils/Utils';
+import {KeyGenerator} from '../../Utils/Utils';
 import Header from './DashboardComponents/Header';
 import { AppContext } from '../../Context/App.context';
 import Cover from './DashboardComponents/Cover';
@@ -71,11 +71,6 @@ const Dashboard = (props) => {
                 </div>
             </div>
             <NavMenu className='fadeInLeft sx3' logo='Lead Manager' userName={userData.userName} menuItems={dashboardPages} />
-            <Cover className="main-loader" hideButton={true} isVisible={isLoading}>
-                <DesignedBox iconBg='bg-pink' boxStyle='1' style={{width: '200px'}} title="LOADING">
-                    <Loader color="bg-pink" />
-                </DesignedBox>
-            </Cover>
         </div>
         
     )

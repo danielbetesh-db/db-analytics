@@ -20,10 +20,11 @@ export const ContextProvider = props => {
   const Login = (email, password, error) => {
     api.Login(email, password, (response => {
       if(response.success){
+        console.log(response);
         setUserData({
           ...userData,
-          userName: response.params.FirstName + ' ' + response.params.LastName,
-          accountID: parseInt(response.params.AccountID)
+          userName: response.data.first_name + ' ' + response.data.last_name,
+          accountID: parseInt(response.data.account_id)
         })
         setAuthState({...authState, isLoggedIn : true})
       }else{
@@ -31,6 +32,7 @@ export const ContextProvider = props => {
       }
     })) 
   }
+
 
 
   const Logout = () => {

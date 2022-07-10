@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import KeyGenerator from "../../../Utils/Utils"
+import {KeyGenerator} from "../../../Utils/Utils"
 import { SvgIcon } from "@mui/material"
 import backgroundImage from '../../../Assests/sidebar.jpg'
 import { useLocation } from 'react-router-dom'

@@ -11,13 +11,16 @@ const App = () => {
 
   return(
     <div className="App">
-      {authState.isLoggedIn ? 
-        <ContextProvider>
-          <Dashboard /> 
-        </ContextProvider>
-        : 
-        <StartPage /> 
-      }
+      
+        {authState.isLoggedIn 
+          ?
+          <ContextProvider>
+            <Dashboard />
+          </ContextProvider> 
+          :
+          <StartPage /> 
+          }
+      
     </div>
 
   );

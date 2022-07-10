@@ -13,6 +13,10 @@ function KeyGenerator(){
 }
 
 
+function fieldsToObject(fields){
+    let result = []
+    fields.map(x => result.push('"' + x.name + '":"' +  x.state.value + '"'))
+    return JSON.parse("{" + result.join(',') + "}")
+}
 
-
-export default KeyGenerator
+export { KeyGenerator, fieldsToObject }

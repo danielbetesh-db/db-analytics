@@ -1,6 +1,6 @@
 import { sizing } from "@mui/system";
 import { useEffect } from "react"
-import KeyGenerator from "../Utils/Utils";
+import {KeyGenerator} from "../Utils/Utils";
 
 
 

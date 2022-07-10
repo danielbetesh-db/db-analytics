@@ -1,4 +1,5 @@
 import { DesignedBox } from "../../Components/DesignedBox"
+import { NotfTag } from "../../Components/NotfTag"
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -20,6 +21,7 @@ const MainPage = (props) => {
                     <span className="text">12,504</span>
                 </DesignedBox>
             </Row>
+            <NotfTag title='Calls' icon={PhoneIphoneIcon} value="0" />
         </div>
         
     )
