@@ -3,7 +3,6 @@ import {API_URL} from '../Config/Constants'
 
 
 const response = (path, requestOptions, callback) => {
-    console.log(requestOptions);
     fetch(path, {...requestOptions,
         headers: {
             Accept: 'application/json',
@@ -51,5 +50,12 @@ export const createProject = (projectsFields, callback) => {
 export const readAllProjects = (accountId, callback) => {
     response(API_URL + 'projects/readallprojects/' + accountId, {
         method: 'GET'
+    }, callback )
+}
+
+export const deleteProject = (accountId, projectId, callback) => {
+    response(API_URL + 'projects/deleteproject/', {
+        method: 'DELETE',
+        body: JSON.stringify({ account_id: accountId, project_id: projectId })
     }, callback )
 }
