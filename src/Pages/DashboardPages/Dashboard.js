@@ -23,7 +23,7 @@ import { Loader } from '../../Components/Loader';
 const Dashboard = (props) => {
 
 
-    
+    const {appState, setAppState} = useContext(AppContext)
     const {Logout, userData } = useContext(AuthContext)
     const {isLoading, menuOpen} = useContext(AppContext)
     
@@ -69,6 +69,14 @@ const Dashboard = (props) => {
                 </div>
             </div>
             <NavMenu className='fadeInLeft sx3' logo='Lead Manager' userName={userData.userName} menuItems={dashboardPages} />
+
+            {appState.isLoading ? 
+            <Cover className="main-loader" hideButton={true} isVisible={true}>
+                <DesignedBox iconBg='bg-pink' boxStyle='1' style={{width: '200px'}} title="LOADING">
+                    <Loader color="bg-pink" />
+                </DesignedBox>
+            </Cover>
+            : ''}
         </div>
         
     )

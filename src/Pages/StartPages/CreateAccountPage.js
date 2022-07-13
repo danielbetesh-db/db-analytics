@@ -39,6 +39,7 @@ const CreateAccountPage = (props) => {
             setLoader(true)
             actions.setLoader(true)
             const userData = fieldsToObject(fields)
+            console.log(userData);
             api.createAccount(userData, (response) => {
                 if(response.success){
                     accountFields = constants.accountFields()

@@ -79,7 +79,7 @@ export const ContextProvider = props => {
 
 
   const updateProject = (projectsFields, error) => {
-    setAppState({...appState, isLoading : true});
+    //setAppState({...appState, isLoading : true});
     let fields = fieldsToObject(projectsFields);
     fields = {...fields, account_id : userData.accountID}
     api.updateProject(fields, (response) => {
@@ -90,7 +90,7 @@ export const ContextProvider = props => {
           setPopupMessage({...popupMessage, visible : true, message : 'Project has been updated.'})
         })
       }else{
-        setAppState({...appState, isLoading : false})
+        //setAppState({...appState, isLoading : false});
         error(response)
       }
     })
@@ -134,11 +134,8 @@ export const ContextProvider = props => {
       
       }}>
       {props.children}
-      <Cover className="main-loader" hideButton={true} isVisible={appState.isLoading}>
-          <DesignedBox iconBg='bg-pink' boxStyle='1' style={{width: '200px'}} title="LOADING">
-              <Loader color="bg-pink" />
-          </DesignedBox>
-      </Cover>
+
+      
       <div className={!popupMessage.visible ? 'pop-message' : 'pop-message on'}>
         {popupMessage.message}
       </div>

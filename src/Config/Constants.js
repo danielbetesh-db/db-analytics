@@ -58,13 +58,13 @@ export const accountFields = () => {
             require: true
         },
         {
-            name : 'FirstName',
+            name : 'first_name',
             placeholder : 'First Name',
             type : 'text',
             require: true
         },
         {
-            name : 'LastName',
+            name : 'last_name',
             placeholder : 'Last Name',
             type : 'text',
             require: true

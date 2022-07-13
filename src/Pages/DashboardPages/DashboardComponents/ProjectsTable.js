@@ -27,8 +27,6 @@ const ProjectsTable = (props) => {
         projectList,
         deleteProject,
         updateProject,
-        appState,
-        setAppState,
         setEditProjectForm,
         editProjectForm
     } = useContext(AppContext);
@@ -114,7 +112,7 @@ const ProjectsTable = (props) => {
                                 onSubmit={(formFields, state, actions) => { 
                                     if(state.status == constants.fieldValidationStatuses.VALID){
                                         updateProject(formFields, (error) => {
-                                        
+                                            console.log(error);
                                             actions.setFormState({...state, errorMessages : [error.message]})
                                         });
                                         
