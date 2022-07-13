@@ -5,16 +5,16 @@ import {API_URL} from '../Config/Constants'
 const response = (path, requestOptions, callback) => {
     fetch(path, {...requestOptions,
         headers: {
-            'Accept': 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json'
         }}
     )  
     .then(response => response.json())
     .then(data => { 
-        callback({...{success : true, message : ''}, ...data, params : parseParams(data?.params)}) 
+        callback({...{success : true, message : ''}, ...data}) 
     })
     .catch(error => {
-        callback({success : false, message : error.message, data : []})
+        callback({success : false, message : error.message, localError : true, data : []})
     })
 }
 
@@ -27,15 +27,42 @@ function parseParams(params){
 }
     
 export const Login = (email, password, callback) => {
-    response(API_URL + 'login/connect', {
+    response(API_URL + 'account/login', {
         method: 'POST',
-        body: JSON.stringify({ Email: email, Password: password })
+        body: JSON.stringify({ email: email, password: password })
     }, callback )
 }
 
-export const createProject = (projectFields, callback) => {
-    response(API_URL + 'api/projects/create-project', {
+export const createAccount = (accountFields, callback) => {
+    response(API_URL + 'account/createAccount', {
         method: 'POST',
-        body: JSON.stringify(projectFields)
+        body: JSON.stringify(accountFields)
+    }, callback )
+}
+
+export const createProject = (projectsFields, callback) => {
+    response(API_URL + 'projects/createproject', {
+        method: 'POST',
+        body: JSON.stringify(projectsFields)
+    }, callback )
+}
+
+export const updateProject = (projectsFields, callback) => {
+    response(API_URL + 'projects/updateproject', {
+        method: 'PUT',
+        body: JSON.stringify(projectsFields)
+    }, callback )
+}
+
+export const readAllProjects = (accountId, callback) => {
+    response(API_URL + 'projects/readallprojects/' + accountId, {
+        method: 'GET'
+    }, callback )
+}
+
+export const deleteProject = (accountId, projectId, callback) => {
+    response(API_URL + 'projects/deleteproject/', {
+        method: 'DELETE',
+        body: JSON.stringify({ account_id: accountId, project_id: projectId })
     }, callback )
 }

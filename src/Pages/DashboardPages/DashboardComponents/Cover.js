@@ -11,17 +11,17 @@ const Cover = (props) => {
         setVisible(props.isVisible)
     }, [props.isVisible])
 
-    useEffect(() => {
-        if(isVisible && props.onClose){
-            props.onClose()
-        }
-    }, [isVisible])
+
 
     const onClickHandler = (e) =>{
         setVisible(prevState => {
-            prevState = !prevState
+            if(prevState){
+                props.onClose()
+            }else{
+                props.onOpen()
+            }
             
-            return prevState;
+            return !prevState;
         })
     }
 

@@ -1,0 +1,259 @@
+
+
+@media screen and (max-width: 1000px) {
+
+    .side-menu{
+        width: 100%;
+        height: auto;
+        bottom: auto;
+        z-index: 9999;
+    }
+
+  
+    .side-menu.off .bg .user {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side-menu .bg{
+        position: relative;
+    }
+
+    .dashboard .wrapper{
+        margin: 0;
+        width: 100%;
+    }
+
+    .side-menu .bg .logo,
+    .side-menu.off .bg .logo{
+        text-align: left;
+        font-size: 20px;
+        padding: 20px;
+    }
+    .side-menu .menu-btn{
+        left: auto;
+        right: 20px;
+        top: 14px;
+    }
+    .side-menu.off{
+        width: 100%;
+    }
+
+    .side-menu.off .bg nav .nav-item span{
+        opacity: 1;
+        font-size: 12px;
+        vertical-align: middle;
+    }
+
+    .side-menu.off .bg nav .nav-item svg{
+        display: inline-block;
+        margin-right: 7px;
+    }
+
+    .side-menu.off .bg nav .nav-item{
+        display: block;
+    }
+
+    .side-menu.off .bg .user img{
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .side-menu.off .bg .user span{
+        opacity: 1;
+        font-size: 13px;
+    }
+
+    .side-menu.off .bg .user{
+        display: block;
+        font-size: 13px; 
+        padding: 15px 5px;
+    }
+
+
+    .side-menu .bg .user{
+        display: none;
+    }
+    .side-menu .bg nav{
+        display: none;
+    }
+
+    .side-menu.off .bg nav{
+        display: block;
+    }
+
+    .side-menu .menu-btn button{
+
+
+        
+    }
+    .dashboard .wrapper.menu-close{
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .widgets .des-box.s2 > .icon{
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 11px;
+    }
+
+
+
+    .widgets .des-box.s2 .childs{
+        position: absolute;
+        right: 15px;
+        top: 25px;
+        margin: 0;
+    }
+    .widgets .des-box.s2 .text{
+        font-size: 22px;
+    }
+
+    .widgets .des-box.s2{
+        margin: 0px 10px;
+        padding: 26px;
+        min-height: auto;
+    }
+
+    .widgets .des-box.s2.icon{
+        width: 50px;
+        height: 50px;
+        top: -24px;
+        left: 13px;
+    }
+    .widgets .des-box.s2 .title{
+        text-align: left;
+        position: static;
+        display: block;
+        margin-top: 0px;
+        margin-left: 50px;
+    }
+
+    .widgets .des-box.s2 .icon svg{
+        font-size: 25px;
+    }
+
+
+
+    .main-page .top .text{
+        font-size: 18px;
+    }
+
+    .main-page .widgets .column{
+        width: 100% !important;
+        min-width: auto !important;
+        padding: 7px !important;
+    }
+
+    .proj .column{
+        min-width: auto !important;
+    }
+
+    .proj .des-box.s1 thead tr:first-child{
+        display: none;
+    }
+
+    .proj .des-box.s1 tr{
+        position: relative;
+    }
+    .proj .des-box.s1 td:nth-child(1){
+        font-size: 18px;
+    }
+    .proj .des-box.s1 td:nth-child(2){
+        text-align: left;
+        padding: 10px 0;
+    }
+    .proj .des-box.s1 td:nth-child(3){
+        display: none;
+    }
+    .proj .des-box.s1 td:nth-child(4){
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+    }
+
+    .proj .popup-form .des-box.s0 .title{
+        color: #555;
+        position: relative;
+        left: 0;
+        text-align: left;
+        margin-left: 90px;
+    }
+
+    .popup-form{
+        min-width: auto;
+        width: 100%;
+        margin: 50px 0;
+        box-sizing: border-box;
+        padding: 0 15px;
+    }
+
+
+
+
+    .pop-message{
+        left: 0;
+        right: 0;
+        width: auto;
+        top: 0; 
+        position: fixed;
+    }
+
+    .popup-form .des-box{
+        margin: 50px 0;
+    }
+    .des-box .childs{
+        width: 100%;
+    }
+    .cover .view{
+        z-index: 99999;
+        overflow: auto;
+    }
+
+    .cover .view > .childs{
+        width: 100%;
+    }
+    .cover.on .cover-btn {
+        bottom: 10px;
+        top: auto;
+        z-index: 999999;
+    }
+    .cover.on .cover-btn button{
+
+    }
+
+    .main-page .proj .des-box.s1 .notf-tag{
+        margin: 10px 8px;
+    }
+    
+    .proj .des-box.s1 .title{
+        font-size: 20px;
+        top: -7px;
+    }
+
+    .proj .des-box.s1 > .childs{
+        margin-top: 10px;
+    }
+    .main-page .proj .des-box.s1{
+        margin: 50px 5px 5px 5px;
+    }
+
+    .page{
+        margin-top: 0;
+    }
+    .cover .cover-btn{
+        position: fixed;
+        bottom: 10px;
+        z-index: 9999;
+        right: 10px;
+    }
+
+
+    table tr{display: block;}
+    table tr td{display: block;}
+}
+

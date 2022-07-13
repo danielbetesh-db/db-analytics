@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import KeyGenerator from '../Utils/Utils'
+import {KeyGenerator} from '../Utils/Utils'
 import { TextField } from './TextField'
 import * as constants from '../Config/Constants'
 import { Loader } from '../Components/Loader'
@@ -9,8 +9,9 @@ const Form = (props) => {
         status : constants.fieldValidationStatuses.IDLE,
         errorMessages : []
     }
+    
     const [formState, setFormState] = useState(initialState)
-    const [isLoading, setLoader] = useState(false)
+    const [isLoading, setLoader] = useState(props.isLoading)
 
     const onSubmitHandler = (e) => {
         e.preventDefault()

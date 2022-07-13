@@ -6,32 +6,20 @@ import { Form } from '../../../Components/Form'
 import * as constants from '../../../Config/Constants'
 import { useContext, useState } from 'react';
 import { AppContext } from '../../../Context/App.context';
+import { isMobile } from 'react-device-detect';
+
 
 
 const Header = (props) => {
 
     const [formFields, setFormFields] = useState(constants.projectFields())
-    const {CreateNewProject} = useContext(AppContext)
-    const [isVisible, setVisible] = useState(false)
+    const {createProject, setNewProjectFormVisible, newProjectFormVisible} = useContext(AppContext)
 
 
     const onSubmitHandler = (formFields, state, actions) => {
-        console.log(state.status);
-        
         if(state.status == constants.fieldValidationStatuses.VALID){
-            const fields = [...formFields]
-            const request = {
-                ProjectName : fields.filter(x => x.name == 'ProjectName')[0]?.state?.value,
-                Emails : fields.filter(x => x.name == 'Emails')[0]?.state?.value,
-                RecivePath : fields.filter(x => x.name == 'RecivePath')[0]?.state?.value,
-                ResponsePath : fields.filter(x => x.name == 'ResponsePath')[0]?.state?.value,
-                ErrorPath : fields.filter(x => x.name == 'ErrorPath')[0]?.state?.value
-            }
-            
-            
-            CreateNewProject(request, (response) => {
-                console.log(response)
-                
+            createProject(formFields, (error) => {
+                actions.setFormState({...state, errorMessages : [error.message]})
             })
         }
     }
@@ -43,15 +31,22 @@ const Header = (props) => {
             minHeight: '85px',
             boxSizing: 'border-box'
             }}>
-            <Cover isVisible={isVisible} onClose={() => { setFormFields(constants.projectFields())   }}>
-                <DesignedBox boxStyle='0' style={{width : '600px'}} 
+            <Cover isVisible={newProjectFormVisible} 
+                onClose={() => { 
+                    setNewProjectFormVisible(false)
+                }}
+                onOpen={() => {
+                    setFormFields(constants.projectFields())
+                    setNewProjectFormVisible(true)
+                }}>
+                <DesignedBox boxStyle='0' className='popup-form' style={{minWidth : isMobile ? 'auto' : '600px', width : isMobile ? '100%' : 'auto'}}
                     iconBg="bg-green" 
                     icon={CloseIcon} 
                     title='Add New Project'>
                     <Form 
                         className="project-form" 
                         style={{textAlign: 'left', direction: 'ltr'}}
-                        buttonClass="bg-green"
+                        buttonClass="project-submit bg-green"
                         buttonText="CREATE"
                         formFields={formFields}
                         onSubmit={onSubmitHandler}

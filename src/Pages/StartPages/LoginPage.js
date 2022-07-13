@@ -18,10 +18,10 @@ const LoginPage = (props) => {
 
 
     const onSubmit = (fields, state, actions) =>{
-        const email = [...fields].find(x => x.name == 'Email')?.state?.value
-        const password = [...fields].find(x => x.name == 'Password')?.state?.value
+        const email = [...fields].find(x => x.name === 'email')?.state?.value
+        const password = [...fields].find(x => x.name === 'password')?.state?.value
         
-        if(state.status == constants.fieldValidationStatuses.VALID){
+        if(state.status === constants.fieldValidationStatuses.VALID){
             setLoader(true)
             actions.setLoader(true)
             Login(email, password, (error) => {
@@ -47,7 +47,7 @@ const LoginPage = (props) => {
                     className="project-form" 
                     buttonClass="bg-pink"
                     buttonText="Log In"
-                    formFields={constants.accountFields().filter(x => x.name == 'Email'|| x.name == 'Password')} 
+                    formFields={constants.accountFields().filter(x => x.name === 'email'|| x.name === 'password')} 
                     onSubmit={onSubmit}    
                 />
                 <div className='btn-link'>
