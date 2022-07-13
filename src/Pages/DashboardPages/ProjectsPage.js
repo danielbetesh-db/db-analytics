@@ -17,7 +17,7 @@ const ProjectsPage = (props) => {
     const {projectList} = useContext(AppContext);
 
     return(
-        <Row className='top' columns='1' columnStyle={{padding : '15px', minWidth : '500px'}}>
+        <Row className='top proj' columns='1' columnStyle={{padding : '15px', minWidth : '500px'}}>
             <ProjectsTable />
         </Row>
     )

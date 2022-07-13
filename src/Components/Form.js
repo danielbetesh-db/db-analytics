@@ -9,6 +9,7 @@ const Form = (props) => {
         status : constants.fieldValidationStatuses.IDLE,
         errorMessages : []
     }
+    
     const [formState, setFormState] = useState(initialState)
     const [isLoading, setLoader] = useState(props.isLoading)
 

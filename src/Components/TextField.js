@@ -97,7 +97,7 @@ const TextFieldView = (props) => {
     return (
         <div 
             className={
-                'text-field' + 
+                (props.type !== 'hidden' ? 'text-field' : '') + 
                 (props.state.focus ? ' focus' : '') + 
                 (props.state.status ? ' ' + props.state.status : '')
             }>

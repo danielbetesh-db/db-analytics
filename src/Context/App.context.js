@@ -15,16 +15,25 @@ export const ContextProvider = props => {
     message : ''
   })
 
+  const [newProjectFormVisible, setNewProjectFormVisible] = useState(false);
+
+  const [editProjectForm, setEditProjectForm] = useState({
+    visible : false,
+    title : '',
+    fields : []
+  });
+
   const [appState, setAppState] = useState({
-    newProjectFormVisible : false,
     isLoading : false
   })
+
+  const [menuOpen, setMenuOpen] = useState(true);
 
   useEffect(() => {
     if(popupMessage.visible){
       setTimeout(() => {
         setPopupMessage({...popupMessage, visible : false})
-      },3000)
+      },1500)
     }
   },[popupMessage.visible])
 
@@ -68,6 +77,26 @@ export const ContextProvider = props => {
 
   }
 
+
+  const updateProject = (projectsFields, error) => {
+    setAppState({...appState, isLoading : true});
+    let fields = fieldsToObject(projectsFields);
+    fields = {...fields, account_id : userData.accountID}
+    api.updateProject(fields, (response) => {
+      if(response.success){
+        readProjectList(() => {
+          setEditProjectForm({...editProjectForm, visible : false})
+          setAppState({...appState, isLoading: false  })
+          setPopupMessage({...popupMessage, visible : true, message : 'Project has been updated.'})
+        })
+      }else{
+        setAppState({...appState, isLoading : false})
+        error(response)
+      }
+    })
+  }
+  
+
   const createProject = (projectsFields, error) => {
     setAppState({...appState, isLoading : true});
     let fields = fieldsToObject(projectsFields);
@@ -75,10 +104,8 @@ export const ContextProvider = props => {
     api.createProject(fields, (response) => {
       if(response.success){
         readProjectList(() => {
-          setAppState({...appState,
-            newProjectFormVisible : false,
-            isLoading: false
-          })
+          setNewProjectFormVisible(false);
+          setAppState({...appState, isLoading: false  })
           setPopupMessage({...popupMessage, visible : true, message : 'Project has been created.'})
         })
       }else{
@@ -93,10 +120,18 @@ export const ContextProvider = props => {
     <AppContext.Provider value={{
       appState, 
       projectList,
+      editProjectForm,
+      newProjectFormVisible,
+      menuOpen,
+      setMenuOpen,
       setAppState, 
       createProject, 
       deleteProject,
-      readProjectList 
+      readProjectList,
+      updateProject,
+      setNewProjectFormVisible,
+      setEditProjectForm
+      
       }}>
       {props.children}
       <Cover className="main-loader" hideButton={true} isVisible={appState.isLoading}>

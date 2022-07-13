@@ -47,6 +47,13 @@ export const createProject = (projectsFields, callback) => {
     }, callback )
 }
 
+export const updateProject = (projectsFields, callback) => {
+    response(API_URL + 'projects/updateproject', {
+        method: 'PUT',
+        body: JSON.stringify(projectsFields)
+    }, callback )
+}
+
 export const readAllProjects = (accountId, callback) => {
     response(API_URL + 'projects/readallprojects/' + accountId, {
         method: 'GET'

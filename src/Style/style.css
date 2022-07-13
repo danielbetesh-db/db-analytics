@@ -100,7 +100,14 @@ body{
   float: left;
   margin-left: 260px;
   width: calc(100% - 260px);
+  transition: 0.5s all;
 }
+
+.dashboard .wrapper.menu-close{
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
 .dashboard::after{
   content: "";
   display: block;
@@ -113,6 +120,7 @@ body{
   font-family: Roboto, sans-serif;
 }
 
+
 .side-menu{
   position: fixed;
   left: 0;
@@ -121,7 +129,17 @@ body{
   width: 260px;
   background: #000;
   color: #fff;
+  transition: 0.5s all;
 }
+
+.side-menu.off{
+  width: 80px;
+}
+
+.side-menu *{
+  transition: 0.5s all;
+}
+
 .side-menu .bg{
   background: rgba(0,0,0,0.8);
   position: absolute;
@@ -135,17 +153,46 @@ body{
   text-transform: uppercase;
   padding: 20px;
   font-size: 20px;
-
 }
+
+.side-menu.off .bg .logo{
+  font-size: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  display: block;
+}
+
+
 .side-menu .bg .user{
   margin: 0 15px;
   padding: 15px 5px ;
   border-top: 1px solid #555;
   border-bottom: 1px solid #555;
   font-size: 13px;
-  text-transform: capitalize;
-  
+  text-transform: capitalize; 
 }
+.side-menu.off .bg .user span{
+  opacity: 0;
+  font-size: 0;
+}
+.side-menu .bg .user img{
+  display: inline-block;
+  width: 28px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.side-menu.off .bg .user{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side-menu.off .bg .user img{
+  margin: 0 auto;
+  display: block;
+
+}
+
 .side-menu .bg nav{
   padding: 20px 0;
 }
@@ -177,6 +224,47 @@ body{
   vertical-align: bottom;
 }
 
+.side-menu .menu-btn{
+  position: absolute;
+  left: calc(100% + 25px);
+  top: 25px;
+}
+
+.side-menu .menu-btn button{
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  background: #e3e3e3;
+  border: none;
+  height: 35px;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14),0 7px 10px -5px rgba(156,39,176,.4) !important;
+}
+
+.side-menu .menu-btn button svg{
+  font-size: 17px;
+}
+
+
+.side-menu.off .menu-btn button svg{
+  font-size: 20px;
+}
+
+.side-menu.off .bg nav .nav-item span{
+  opacity: 0;
+  font-size: 0;
+}
+.side-menu.off .bg nav .nav-item svg{
+  display: block;
+  margin: 0 auto;
+}
+
+.side-menu.off .bg nav .nav-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .form .error-message{
   position: absolute;
@@ -359,24 +447,24 @@ body{
   z-index: 1;
 }
 
-.des-box.s1 .icon{
+.des-box.s1 > .icon{
   width: calc(100% - 50px);
 }
 
-.des-box.s2 .icon{
+.des-box.s2 > .icon{
   width: 120px;
   height: 120px;
 }
 
 
-.des-box .icon svg{
+.des-box > .icon svg{
   font-size: 30px;
 }
-.des-box.s1 .icon svg{
+.des-box.s1 > .icon svg{
   display: none;
 }
 
-.des-box.s2 .icon svg{
+.des-box.s2 > .icon svg{
   font-size: 35px;
 }
 
@@ -433,6 +521,10 @@ body{
   color: #fff;
 }
 
+.notf-tag svg{
+  font-size: 18px;
+}
+
 .notf-tag:hover{
   transform: scale(1.1);
 }
@@ -458,6 +550,11 @@ body{
   line-height: 15px;
 }
 
+.edit-form{}
+.edit-form .cover-btn{
+  top: 20px;
+  right: 30px;
+}
 
 
 table{

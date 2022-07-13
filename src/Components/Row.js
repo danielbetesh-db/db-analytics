@@ -6,7 +6,6 @@ import {KeyGenerator} from "../Utils/Utils";
 
 const Row = (props) => {
     
-    console.log(props.children)
     const childs = props.children?.length ? [...props.children] : fillEmptyChilds();
     
     function fillEmptyChilds(){

@@ -22,9 +22,10 @@ import { Loader } from '../../Components/Loader';
 
 const Dashboard = (props) => {
 
+
     
     const {Logout, userData } = useContext(AuthContext)
-    const {isLoading} = useContext(AppContext)
+    const {isLoading, menuOpen} = useContext(AppContext)
     
 
     const dashboardPages = [
@@ -56,12 +57,9 @@ const Dashboard = (props) => {
         }
     ]
 
-
-
-
     return (
         <div className='page dashboard'>
-            <div className='wrapper'>
+            <div className={menuOpen ? 'wrapper' : 'wrapper  menu-close'}>
                 <Header />
                 <div className='content'>
                     <Routes>

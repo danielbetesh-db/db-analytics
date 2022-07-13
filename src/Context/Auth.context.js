@@ -20,7 +20,6 @@ export const ContextProvider = props => {
   const Login = (email, password, error) => {
     api.Login(email, password, (response => {
       if(response.success){
-        console.log(response);
         setUserData({
           ...userData,
           userName: response.data.first_name + ' ' + response.data.last_name,

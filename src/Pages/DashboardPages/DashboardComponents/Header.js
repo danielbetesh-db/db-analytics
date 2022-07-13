@@ -6,14 +6,14 @@ import { Form } from '../../../Components/Form'
 import * as constants from '../../../Config/Constants'
 import { useContext, useState } from 'react';
 import { AppContext } from '../../../Context/App.context';
-
+import { isMobile } from 'react-device-detect';
 
 
 
 const Header = (props) => {
 
     const [formFields, setFormFields] = useState(constants.projectFields())
-    const {createProject, appState, setAppState} = useContext(AppContext)
+    const {createProject, setNewProjectFormVisible, newProjectFormVisible} = useContext(AppContext)
 
 
     const onSubmitHandler = (formFields, state, actions) => {
@@ -31,15 +31,15 @@ const Header = (props) => {
             minHeight: '85px',
             boxSizing: 'border-box'
             }}>
-            <Cover isVisible={appState.newProjectFormVisible} 
+            <Cover isVisible={newProjectFormVisible} 
                 onClose={() => { 
-                    setAppState({...appState, newProjectFormVisible : false}) 
+                    setNewProjectFormVisible(false)
                 }}
                 onOpen={() => {
                     setFormFields(constants.projectFields())
-                    setAppState({...appState, newProjectFormVisible : true}) 
+                    setNewProjectFormVisible(true)
                 }}>
-                <DesignedBox boxStyle='0' style={{width : '600px'}} 
+                <DesignedBox boxStyle='0' className='popup-form' style={{minWidth : isMobile ? 'auto' : '600px', width : isMobile ? '100%' : 'auto'}}
                     iconBg="bg-green" 
                     icon={CloseIcon} 
                     title='Add New Project'>

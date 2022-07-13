@@ -3,20 +3,28 @@ import {KeyGenerator} from "../../../Utils/Utils"
 import { SvgIcon } from "@mui/material"
 import backgroundImage from '../../../Assests/sidebar.jpg'
 import { useLocation } from 'react-router-dom'
-import { useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
+import ListIcon from '@mui/icons-material/List';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Button from "../../../Components/Button"
+import face from '../../../Assests/anonymus.png'
+import { AppContext } from "../../../Context/App.context"
+
+
 
 const NavMenu = (props) => {
     const location = useLocation();
+    const {menuOpen, setMenuOpen} = useContext(AppContext);
 
-    useEffect(() =>{
-        console.log(location.pathname)
-    }, [])
-
+    
     return(
-        <div className={props.className ? 'side-menu ' + props.className : 'side-menu'}  style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className={(props.className ? 'side-menu ' + props.className : 'side-menu') + (!menuOpen ? ' off' : '')}  style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="bg">
                 <div className="logo">{props.logo}</div>
-                <div className="user">{props.userName}</div>
+                <div className="user">
+                    <img src={face} alt='user' />
+                    <span>{props.userName}</span>
+                </div>
                 <nav>
                     {props.menuItems.map(item => {
                         return(
@@ -31,6 +39,9 @@ const NavMenu = (props) => {
                         )
                     })}
                 </nav>
+            </div>
+            <div className="menu-btn">
+                <Button onClick={() => {setMenuOpen(!menuOpen)}}><SvgIcon component={menuOpen ? MoreVertIcon : ListIcon} /></Button>
             </div>
         </div>
     )
