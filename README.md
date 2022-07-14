@@ -5,3 +5,5 @@ The purpose of the app is to keep track of web pages and display data like  view
 Server side code can be found in : https://github.com/danielbetesh-db/my_php_web_api
 
 demo : https://www.danielb.link/
+demo user : demo@demo.com
+demo password : demo
